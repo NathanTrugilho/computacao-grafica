@@ -7,6 +7,7 @@
 // "OpenGL SuperBible", 2nd Edition, de Richard S. e Wright Jr.
 
 //gcc cubo.c -o cubo -lfreeglut -lopengl32 -lglu32
+//gcc cubo.c -o cubo -lglut -lGL -lGLU -lm
 
 #include <GL/glut.h>
 #include <math.h>
