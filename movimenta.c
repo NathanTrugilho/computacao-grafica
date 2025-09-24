@@ -14,12 +14,26 @@ GLfloat fAspect;
 GLfloat camX = 0.0f, camY = 0.0f, camZ = 100.0f;
 GLfloat focX, focY, focZ;
 GLfloat dirX = 0.0f, dirY = 0.0f, dirZ = -1.0f; // direção inicial
-GLfloat passo = 2.0f, angulo = 3.0f;
+GLfloat passo = 2.0f, angulo = 2.0f;
+
+// Define volume de visualização
+void EspecificaParametrosVisualizacao(void)
+{
+    glMatrixMode(GL_PROJECTION);
+    glLoadIdentity();
+    gluPerspective(45,fAspect,0.4,500);
+
+    glMatrixMode(GL_MODELVIEW);
+    glLoadIdentity();
+    gluLookAt(camX, camY, camZ, focX, focY, focZ, 0,1,0);
+}
+
 
 // Desenho dos objetos
 void Desenha(void)
 {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    //glPushMatrix();
     glRotatef(angulo, 0.0f, 1.0f, 0.0f);
     
     glPushMatrix();
@@ -27,10 +41,10 @@ void Desenha(void)
 	glTranslatef(0,0,20);
 	glNormal3f(0,0,1);
 	glBegin(GL_QUADS);
-		glVertex3f(-20.0f, -20.0f, 0.0f);
-		glVertex3f( 20.0f, -20.0f, 0.0f);
-		glVertex3f( 20.0f,  20.0f, 0.0f);
-		glVertex3f(-20.0f,  20.0f, 0.0f);
+    glVertex3f(-20.0f, -20.0f, 0.0f);
+    glVertex3f( 20.0f, -20.0f, 0.0f);
+    glVertex3f( 20.0f,  20.0f, 0.0f);
+    glVertex3f(-20.0f,  20.0f, 0.0f);
 	glEnd();
     glPopMatrix();
 	
@@ -44,71 +58,73 @@ void Desenha(void)
 		glVertex3f( 20.0f, -20.0f, 0.0f);
 		glVertex3f( 20.0f,  20.0f, 0.0f);
 		glVertex3f(-20.0f,  20.0f, 0.0f);
-	glEnd();
-    glPopMatrix();
-	
-    glPushMatrix();
-	glColor3f(0.0f, 0.0f, 1.0f); // BLUE
-	glTranslatef(20,0,0);
-	glRotatef(90,0,1,0);
-	glNormal3f(0,0,1);
-	glBegin(GL_QUADS);
+        glEnd();
+        glPopMatrix();
+        
+        glPushMatrix();
+        glColor3f(0.0f, 0.0f, 1.0f); // BLUE
+        glTranslatef(20,0,0);
+        glRotatef(90,0,1,0);
+        glNormal3f(0,0,1);
+        glBegin(GL_QUADS);
 		glVertex3f(-20.0f, -20.0f, 0.0f);
 		glVertex3f( 20.0f, -20.0f, 0.0f);
 		glVertex3f( 20.0f,  20.0f, 0.0f);
 		glVertex3f(-20.0f,  20.0f, 0.0f);
-	glEnd();
-    glPopMatrix();
-
-    glPushMatrix();
-	glColor3f(1.0f, 1.0f, 0.0f); // YELLOW
-	glTranslatef(-20,0,0);
-	glRotatef(270,0,1,0);
-	glNormal3f(0,0,1);
-	glBegin(GL_QUADS);
+        glEnd();
+        glPopMatrix();
+        
+        glPushMatrix();
+        glColor3f(1.0f, 1.0f, 0.0f); // YELLOW
+        glTranslatef(-20,0,0);
+        glRotatef(270,0,1,0);
+        glNormal3f(0,0,1);
+        glBegin(GL_QUADS);
 		glVertex3f(-20.0f, -20.0f, 0.0f);
 		glVertex3f( 20.0f, -20.0f, 0.0f);
 		glVertex3f( 20.0f,  20.0f, 0.0f);
 		glVertex3f(-20.0f,  20.0f, 0.0f);
-	glEnd();
-    glPopMatrix();
-	
-    glPushMatrix();
-	glColor3f(0.0f, 1.0f, 1.0f); // CYAN
-	glTranslatef(0,20,0);
-	glRotatef(270,1,0,0);
-	glNormal3f(0,0,1);
-	glBegin(GL_QUADS);
+        glEnd();
+        glPopMatrix();
+        
+        glPushMatrix();
+        glColor3f(0.0f, 1.0f, 1.0f); // CYAN
+        glTranslatef(0,20,0);
+        glRotatef(270,1,0,0);
+        glNormal3f(0,0,1);
+        glBegin(GL_QUADS);
 		glVertex3f(-20.0f, -20.0f, 0.0f);
 		glVertex3f( 20.0f, -20.0f, 0.0f);
 		glVertex3f( 20.0f,  20.0f, 0.0f);
 		glVertex3f(-20.0f,  20.0f, 0.0f);
-	glEnd();
-    glPopMatrix();
-	
-    glPushMatrix();
-	glColor3f(1.0f, 0.0f, 1.0f); // MAGENTA
-	glTranslatef(0,-20,0);
-	glRotatef(90,1,0,0);
-	glNormal3f(0,0,1);
-	glBegin(GL_QUADS);
+        glEnd();
+        glPopMatrix();
+        
+        glPushMatrix();
+        glColor3f(1.0f, 0.0f, 1.0f); // MAGENTA
+        glTranslatef(0,-20,0);
+        glRotatef(90,1,0,0);
+        glNormal3f(0,0,1);
+        glBegin(GL_QUADS);
 		glVertex3f(-20.0f, -20.0f, 0.0f);
 		glVertex3f( 20.0f, -20.0f, 0.0f);
 		glVertex3f( 20.0f,  20.0f, 0.0f);
 		glVertex3f(-20.0f,  20.0f, 0.0f);
-	glEnd();
-	glPopMatrix();
-
-	glutSwapBuffers();
-}
-
-void AtualizaFoco() {
-	focX = camX + dirX;
-	focY = camY + dirY;
-	focZ = camZ + dirZ;
-}
-
-// Inicialização
+        glEnd();
+        glPopMatrix();
+        //glPopMatrix();
+        
+        glutSwapBuffers();
+        EspecificaParametrosVisualizacao(); //Se tirar a matriz fica suja e o cubo fica aumentando a veloc angular
+    }
+    
+    void AtualizaFoco() {
+        focX = camX + dirX;
+        focY = camY + dirY;
+        focZ = camZ + dirZ;
+    }
+    
+    // Inicialização
 void Inicializa(void)
 { 
 	GLfloat luzAmbiente[4]={0.2,0.2,0.2,1.0}; 
@@ -137,18 +153,6 @@ void Inicializa(void)
     glEnable(GL_DEPTH_TEST);
 
     AtualizaFoco();
-}
-
-// Define volume de visualização
-void EspecificaParametrosVisualizacao(void)
-{
-    glMatrixMode(GL_PROJECTION);
-    glLoadIdentity();
-    gluPerspective(45,fAspect,0.4,500);
-
-    glMatrixMode(GL_MODELVIEW);
-    glLoadIdentity();
-    gluLookAt(camX, camY, camZ, focX, focY, focZ, 0,1,0);
 }
 
 // Redimensionamento
@@ -218,8 +222,13 @@ void GerenciaTeclasEspeciais(int key, int x, int y) {
 // Timer
 void Timer(int value)
 {
+    angulo += 2;
+    if (angulo > 360)
+    {
+        angulo -= 360;
+    }
     glutPostRedisplay();
-    glutTimerFunc(16, Timer, 1); 
+    glutTimerFunc(60, Timer, 1); 
 }
 
 // Programa principal
