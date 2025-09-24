@@ -41,77 +41,77 @@ void Desenha(void)
 	glTranslatef(0,0,20);
 	glNormal3f(0,0,1);
 	glBegin(GL_QUADS);
-    glVertex3f(-20.0f, -20.0f, 0.0f);
-    glVertex3f( 20.0f, -20.0f, 0.0f);
-    glVertex3f( 20.0f,  20.0f, 0.0f);
-    glVertex3f(-20.0f,  20.0f, 0.0f);
+        glVertex3f(-20.0f, -20.0f, 0.0f);
+        glVertex3f( 20.0f, -20.0f, 0.0f);
+        glVertex3f( 20.0f,  20.0f, 0.0f);
+        glVertex3f(-20.0f,  20.0f, 0.0f);
 	glEnd();
     glPopMatrix();
 	
     glPushMatrix();
 	glColor3f(0.0f, 1.0f, 0.0f); // GREEN
+	glNormal3f(0,0,1);
 	glTranslatef(0,0,-20);  
 	glRotatef(180,0,1,0);
-	glNormal3f(0,0,1);
 	glBegin(GL_QUADS);
 		glVertex3f(-20.0f, -20.0f, 0.0f);
 		glVertex3f( 20.0f, -20.0f, 0.0f);
 		glVertex3f( 20.0f,  20.0f, 0.0f);
 		glVertex3f(-20.0f,  20.0f, 0.0f);
         glEnd();
-        glPopMatrix();
+    glPopMatrix();
         
-        glPushMatrix();
-        glColor3f(0.0f, 0.0f, 1.0f); // BLUE
-        glTranslatef(20,0,0);
-        glRotatef(90,0,1,0);
-        glNormal3f(0,0,1);
+    glPushMatrix();
+    glColor3f(0.0f, 0.0f, 1.0f); // BLUE
+    glTranslatef(20,0,0);
+    glRotatef(90,0,1,0);
+    glNormal3f(0,0,1);
         glBegin(GL_QUADS);
 		glVertex3f(-20.0f, -20.0f, 0.0f);
 		glVertex3f( 20.0f, -20.0f, 0.0f);
 		glVertex3f( 20.0f,  20.0f, 0.0f);
 		glVertex3f(-20.0f,  20.0f, 0.0f);
         glEnd();
-        glPopMatrix();
+    glPopMatrix();
         
-        glPushMatrix();
-        glColor3f(1.0f, 1.0f, 0.0f); // YELLOW
-        glTranslatef(-20,0,0);
-        glRotatef(270,0,1,0);
-        glNormal3f(0,0,1);
+    glPushMatrix();
+    glColor3f(1.0f, 1.0f, 0.0f); // YELLOW
+    glTranslatef(-20,0,0);
+    glRotatef(270,0,1,0);
+    glNormal3f(0,0,1);
         glBegin(GL_QUADS);
 		glVertex3f(-20.0f, -20.0f, 0.0f);
 		glVertex3f( 20.0f, -20.0f, 0.0f);
 		glVertex3f( 20.0f,  20.0f, 0.0f);
 		glVertex3f(-20.0f,  20.0f, 0.0f);
         glEnd();
-        glPopMatrix();
+    glPopMatrix();
         
-        glPushMatrix();
-        glColor3f(0.0f, 1.0f, 1.0f); // CYAN
-        glTranslatef(0,20,0);
-        glRotatef(270,1,0,0);
-        glNormal3f(0,0,1);
+    glPushMatrix();
+    glColor3f(0.0f, 1.0f, 1.0f); // CYAN
+    glTranslatef(0,20,0);
+    glRotatef(270,1,0,0);
+    glNormal3f(0,0,1);
         glBegin(GL_QUADS);
 		glVertex3f(-20.0f, -20.0f, 0.0f);
 		glVertex3f( 20.0f, -20.0f, 0.0f);
 		glVertex3f( 20.0f,  20.0f, 0.0f);
 		glVertex3f(-20.0f,  20.0f, 0.0f);
         glEnd();
-        glPopMatrix();
+    glPopMatrix();
         
-        glPushMatrix();
-        glColor3f(1.0f, 0.0f, 1.0f); // MAGENTA
-        glTranslatef(0,-20,0);
-        glRotatef(90,1,0,0);
-        glNormal3f(0,0,1);
+    glPushMatrix();
+    glColor3f(1.0f, 0.0f, 1.0f); // MAGENTA
+    glTranslatef(0,-20,0);
+    glRotatef(90,1,0,0);
+    glNormal3f(0,0,1);
         glBegin(GL_QUADS);
 		glVertex3f(-20.0f, -20.0f, 0.0f);
 		glVertex3f( 20.0f, -20.0f, 0.0f);
 		glVertex3f( 20.0f,  20.0f, 0.0f);
 		glVertex3f(-20.0f,  20.0f, 0.0f);
         glEnd();
-        glPopMatrix();
+    glPopMatrix();
         //glPopMatrix();
         
         glutSwapBuffers();
