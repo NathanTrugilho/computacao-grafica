@@ -3,8 +3,8 @@
 // Iluminacao.c - Isabel H. Manssour
 // Exemplo adaptado para câmera com movimentação e rotação matricial
 //
-// gcc cubo.c -o cubo -lfreeglut -lopengl32 -lglu32
-// gcc cubo.c -o cubo -lglut -lGL -lGLU -lm
+// gcc movimenta.c -o movimenta -lfreeglut -lopengl32 -lglu32
+// gcc movimenta.c -o movimenta -lglut -lGL -lGLU -lm
 
 #include <GL/glut.h>
 #include <math.h>
@@ -14,13 +14,14 @@ GLfloat fAspect;
 GLfloat camX = 0.0f, camY = 0.0f, camZ = 100.0f;
 GLfloat focX, focY, focZ;
 GLfloat dirX = 0.0f, dirY = 0.0f, dirZ = -1.0f; // direção inicial
-GLfloat passo = 2.0f;
+GLfloat passo = 2.0f, angulo = 3.0f;
 
 // Desenho dos objetos
 void Desenha(void)
 {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-	
+    glRotatef(angulo, 0.0f, 1.0f, 0.0f);
+    
     glPushMatrix();
 	glColor3f(1.0f, 0.0f, 0.0f); // RED
 	glTranslatef(0,0,20);
@@ -35,7 +36,7 @@ void Desenha(void)
 	
     glPushMatrix();
 	glColor3f(0.0f, 1.0f, 0.0f); // GREEN
-	glTranslatef(0,0,-20);
+	glTranslatef(0,0,-20);  
 	glRotatef(180,0,1,0);
 	glNormal3f(0,0,1);
 	glBegin(GL_QUADS);
@@ -97,7 +98,7 @@ void Desenha(void)
 		glVertex3f(-20.0f,  20.0f, 0.0f);
 	glEnd();
 	glPopMatrix();
-		
+
 	glutSwapBuffers();
 }
 
@@ -191,6 +192,12 @@ void GerenciaTeclado(unsigned char tecla, int x, int y)
             camX += passo * dirZ;
             camZ -= passo * dirX;
             break;
+        case 'e': case 'E': //sobe
+            camY += passo;  
+            break;
+		case 'q': case 'Q': //desce
+            camY -= passo;
+            break;
     }
     AtualizaFoco();
     EspecificaParametrosVisualizacao();
@@ -212,7 +219,7 @@ void GerenciaTeclasEspeciais(int key, int x, int y) {
 void Timer(int value)
 {
     glutPostRedisplay();
-    glutTimerFunc(60, Timer, 1);
+    glutTimerFunc(16, Timer, 1); 
 }
 
 // Programa principal
