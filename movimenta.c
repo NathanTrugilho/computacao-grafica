@@ -33,7 +33,7 @@ void EspecificaParametrosVisualizacao(void)
 void Desenha(void)
 {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    //glPushMatrix();
+    
     glRotatef(angulo, 0.0f, 1.0f, 0.0f);
     
     glPushMatrix();
@@ -112,7 +112,6 @@ void Desenha(void)
 		glVertex3f(-20.0f,  20.0f, 0.0f);
         glEnd();
     glPopMatrix();
-        //glPopMatrix();
         
         glutSwapBuffers();
         EspecificaParametrosVisualizacao(); //Se tirar a matriz fica suja e o cubo fica aumentando a veloc angular
@@ -188,13 +187,13 @@ void GerenciaTeclado(unsigned char tecla, int x, int y)
             camX -= passo * dirX;
             camZ -= passo * dirZ;
             break;
+        case 'a': case 'A':
+            camX += passo * dirZ;
+            camZ -= passo * dirX;
+            break;
 		case 'd': case 'D':
             camX -= passo * dirZ;
             camZ += passo * dirX;
-            break;
-		case 'a': case 'A':
-            camX += passo * dirZ;
-            camZ -= passo * dirX;
             break;
         case 'e': case 'E': //sobe
             camY += passo;  
@@ -228,7 +227,7 @@ void Timer(int value)
         angulo -= 360;
     }
     glutPostRedisplay();
-    glutTimerFunc(60, Timer, 1); 
+    glutTimerFunc(16, Timer, 1); 
 }
 
 // Programa principal
@@ -243,6 +242,6 @@ int main(int argc, char **argv)
     glutKeyboardFunc(GerenciaTeclado);
     glutSpecialFunc(GerenciaTeclasEspeciais);
     Inicializa();
-    glutTimerFunc(60, Timer, 1);
+    glutTimerFunc(16, Timer, 1);
     glutMainLoop();
 }
