@@ -28,7 +28,6 @@ void EspecificaParametrosVisualizacao(void)
     gluLookAt(camX, camY, camZ, focX, focY, focZ, 0,1,0);
 }
 
-
 // Desenho dos objetos
 void Desenha(void)
 {
@@ -114,7 +113,8 @@ void Desenha(void)
     glPopMatrix();
         
         glutSwapBuffers();
-        EspecificaParametrosVisualizacao(); //Se tirar a matriz fica suja e o cubo fica aumentando a veloc angular
+        glLoadIdentity(); // Limpo a matriz modelviel 
+        gluLookAt(camX, camY, camZ, focX, focY, focZ, 0,1,0);
     }
     
     void AtualizaFoco() {
@@ -163,7 +163,7 @@ void AlteraTamanhoJanela(GLsizei w, GLsizei h)
     EspecificaParametrosVisualizacao();
 }
 
-void RotacionaY(float ang) {
+void RotacionaY(float ang) { // Rotaciona o vetor direção
     float rad = ang * PI / 180.0f;
     float cosA = cos(rad);
     float sinA = sin(rad);
